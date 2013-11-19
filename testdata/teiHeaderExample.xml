@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:tei="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+    <fileDesc>
+        <titleStmt xmlns:tei="http://www.tei-c.org/ns/1.0">
+            <title>Iliad text of manuscript Escorial Upsilon 1.1</title>
+            <editor>Include every single name of every contributor to this edition</editor>
+        </titleStmt>
+        <tei:publicationStmt>
+            <p>Proper publication statement</p>
+        </tei:publicationStmt>
+        <sourceDesc>
+            <p>Text edited directly from photography of the E3 manuscript.</p>
+        </sourceDesc>
+    </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+        <p>Template document:  body will be ignored, and only teiHeader element
+        reused.</p>
+        </body>
+    </text>
+    </TEI>
