@@ -7,6 +7,9 @@ License: GPL 3.0.  See accompanying text of license.
 
 import edu.unc.epidoc.transcoder.TransCoder
 
+import groovy.xml.Namespace
+
+
 /** A class for working with Greek text.  A GreekNode
 * represents a well-formed XML node of Greek text
 * encoded in one of the explicitly listed systems for encoding Greek characters.
@@ -52,17 +55,22 @@ class GreekNode {
     /** System for encoding Greek in this GreekNode.  Default is UTF8. */
     String charEnc = "UTF8"
     /** XML namespace for the node.  Default is TEI. */
-    def nodeNamespace = new groovy.xml.Namespace("http://www.tei-c.org/ns/1.0")
+    groovy.xml.Namespace nodeNamespace = new groovy.xml.Namespace("http://www.tei-c.org/ns/1.0")
     /** The root of the XML content as a parsed groovy.util.Node */
     def parsedNode = null
 
 
+    GreekNode () {
+    }
 
     /**
     * Constructs a GreekNode object from a groovy Node object.
     */
     GreekNode (groovy.util.Node n) {
-            parsedNode = n
+      if (debug) {
+	System.err.println "\nConstructring GreekNode from groovy node " + n + "\n"
+      }
+      parsedNode = n
     }
 
 
