@@ -616,12 +616,12 @@ class GreekNode {
                 if (withDefaultNs) {
                     tag.append(" xmlns='" + n.name().getNamespaceURI() + "' ")
                 }
-                tag.append(" xmlns:${n.name().getPrefix()}='" + n.name().getNamespaceURI() + "' ")
+                tag.append(" xmlns:${n.name().getPrefix()}=" + '"' + n.name().getNamespaceURI() + '" ')
 
             } else {
                 tag.append("<${n.name().getLocalPart()}")
                if (withDefaultNs) {
-                    tag.append(" xmlns='" + n.name().getNamespaceURI() + "' ")
+                    tag.append(' xmlns="' + n.name().getNamespaceURI() + '" ')
                 }
  
             }
@@ -694,9 +694,9 @@ class GreekNode {
         StringBuffer attrStr = new StringBuffer()
         n.attributes().keySet().each { a ->
             if (a instanceof groovy.xml.QName) {
-                attrStr.append(" ${a.getPrefix()}:${a.getLocalPart()}='" + n.attribute(a) + "' ")
+                attrStr.append(" ${a.getPrefix()}:${a.getLocalPart()}=" + '"' + n.attribute(a) + '" ')
             } else {
-                attrStr.append(" ${a}='" + n.attribute(a) + "' ")
+                attrStr.append(" ${a}=" + '"' + n.attribute(a) + '" ')
             }
         }
 

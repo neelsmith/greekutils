@@ -2,11 +2,28 @@ apply plugin: "base"
 apply plugin:  "groovy"
 apply plugin:  "maven"
 
-apply from: "conf.gradle"
 
+if (hasProperty('conf')) {
+    System.err.print "Using configuration data from ${conf}"
+    File confFile = new File(conf)
+    if (! confFile.exists()) {
+        throw new Exception("No publication configuration file ${conf} found.")
+    } else {
+        apply from: conf
+    }
+
+} else {
+    File confFile = new File("conf.gradle")
+    if (! confFile.exists()) {
+        throw new Exception("No publication configuration file ${confFile} found.")
+    } else {
+        println "Using default configuration in 'conf.gradle'"
+        apply from: "conf.gradle"
+    }
+}
 
 group = "edu.harvard.chs"
-version = '0.8.6'
+version = '0.8.13'
 
 repositories {
     mavenCentral()
